@@ -1,11 +1,13 @@
 fn main() {
-    let rect1 = build_rectangle(30, 50);
-    let rect2 = build_rectangle(40, 40);
-    let rect3 = build_rectangle(20, 20);
+    let rect1 = Rectangle::from(30, 50);
+    let rect2 = Rectangle::from(40, 40);
+    let rect3 = Rectangle::from(20, 20);
+    let square = Rectangle::square(40);
 
     rect1.print_area();
     rect2.print_area();
     rect3.print_area();
+    square.print_area();
 
     println!("Can rect1 hold rect2? {}", rect1.can_hold(rect2));
     println!("Can rect1 hold rect3? {}", rect1.can_hold(rect3));
@@ -27,10 +29,17 @@ impl Rectangle {
     }
 
     fn can_hold(&self, rect: Rectangle) -> bool {
-        self.area() > rect.area()
+        self.width > rect.width && self.height > rect.height
     }
-}
 
-fn build_rectangle(width: u32, height: u32) -> Rectangle {
-    Rectangle { width, height }
+    fn square(size: u32) -> Rectangle {
+        Rectangle {
+            width: size,
+            height: size,
+        }
+    }
+
+    fn from(width: u32, height: u32) -> Rectangle {
+        Rectangle { width, height }
+    }
 }
