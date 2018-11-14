@@ -1,0 +1,1 @@
+/Users/williamhenrygough/github/rust/communicator/target/rls/debug/libcommunicator.rmeta: /Users/williamhenrygough/github/rust/communicator/src/lib.rs /Users/williamhenrygough/github/rust/communicator/src/main.rs
